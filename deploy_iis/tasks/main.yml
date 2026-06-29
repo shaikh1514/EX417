@@ -1,0 +1,17 @@
+---
+# tasks file for deploy_iis
+---
+- name: Install IIS
+  win_feature:
+    name: Web-Server
+    state: present
+
+- name: Start IIS
+  win_service:
+    name: W3SVC
+    state: started
+
+- name: Deploy webpage
+  win_template:
+    src: index.html.j2
+    dest: C:\Inetpub\wwwroot\index.html
