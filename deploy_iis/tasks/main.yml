@@ -14,4 +14,4 @@
 - name: Deploy webpage
   win_template:
     src: index.html.j2
-    dest: C:\Inetpub\wwwroot\index.html
+    dest: C:\Inetpub\wwwroot\role.html

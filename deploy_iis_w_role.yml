@@ -1,0 +1,7 @@
+---
+- name: testing roles
+  hosts: all
+  vars:
+    phrase: "What will be will be"
+  roles:
+  - deploy_iis
