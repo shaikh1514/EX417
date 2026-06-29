@@ -3,13 +3,13 @@
   hosts: all
   tasks:
     - name: Set vars for win01
-      ansible.builtin.set_facts:
+      ansible.builtin.set_fact:
         ribbon_mode: normal
         message: "Summer is vibing"
       when: inventory_hostname == "win01.domain9.example.com"
 
     - name: Set vars for win02
-      ansible.builtin.set_facts:
+      ansible.builtin.set_fact:
         ribbon_mode: inverted
         message: "Summer is vibing here too"
       when: inventory_hostname == "win02.domain9.example.com"
