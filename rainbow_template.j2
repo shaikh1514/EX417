@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rainbow</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .ribbon {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .color {
+            width: 60px;
+            height: 200px
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>{{ message }}</h1>
+
+<div class="ribbon">
+
+{% if ribbon_mode == "normal" %}
+
+    <div class="color" style="background:red"></div>
+    <div class="color" style="background:orange"></div>
+    <div class="color" style="background:yellow"></div>
+    <div class="color" style="background:green"></div>
+    <div class="color" style="background:blue"></div>
+    <div class="color" style="background:indigo"></div>
+    <div class="color" style="background:violet"></div>
+
+{% elif ribbon_mode == "inverted" %}
+
+    <div class="color" style="background:violet"></div>
+    <div class="color" style="background:indigo"></div>
+    <div class="color" style="background:blue"></div>
+    <div class="color" style="background:green"></div>
+    <div class="color" style="background:yellow"></div>
+    <div class="color" style="background:orange"></div>
+    <div class="color" style="background:red"></div>
+
+{% else %}
+
+    <div class="color" style="background:black"></div>
+    <div class="color" style="background:black"></div>
+    <div class="color" style="background:black"></div>
+    <div class="color" style="background:black"></div> 
+    <div class="color" style="background:black"></div>
+    <div class="color" style="background:black"></div>
+    <div class="color" style="background:black"></div>
+
+{% endif %}
+
+
+</div>
+
+</body>
+</html>
