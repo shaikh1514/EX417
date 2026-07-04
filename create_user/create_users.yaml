@@ -1,0 +1,23 @@
+---
+- name: Create local users on Windows
+  hosts: win03.domain9.example.com
+  vars:
+    user_password: "Boaterch9"
+    users:
+      - name: Bill
+        description: "640K ought to be enough for anybody"
+
+      - name: Steve
+        description: "Developers Developers Developers"
+
+      - name: Satya
+        description: "Microsoft loves Linux"
+  tasks:
+    - name: Create local users
+      ansible.windows.win_user:
+        name: "{{ item.name }}"
+        description: "{{ item.description }}"
+        password: "{{ user_password }}"
+        password_never_expires: true
+        state: present
+      loop: "{{ users }}"
