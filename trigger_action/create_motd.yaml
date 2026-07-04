@@ -1,0 +1,27 @@
+---
+  - name: motd script
+    hosts: all
+    tasks:
+      - name: Create directory
+        ansible.windows.win_file:
+          path: C:\motd
+          state: directory
+
+      - name: Download motd script
+        ansible.windows.win_get_url:
+          url: http://workstation.lab.example.com/materials/motd/motd.ps1
+          dest: C:\motd\motd.ps1
+
+      - name: Create scheduled tasks
+        community.windows.win_scheduled_task:
+          name: "motd project"
+          description: "Display MOTD"
+          actions:
+            - path: powershell.exe
+              arguments: "-ExecutionPolicy Bypass -File C:\\motd\\motd.ps1"
+          triggers:
+            - type: logon
+              user_id: devops
+          username: SYSTEM
+          run_level: highest
+          state: present
